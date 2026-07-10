@@ -1,0 +1,14 @@
+{
+  "name": "streamsaga",
+  "private": true,
+  "scripts": {
+    "dev:server": "cd server && npm run dev",
+    "dev:admin": "cd admin && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "install:all": "cd server && npm install && cd ../admin && npm install && cd ../client && npm install",
+    "build:server": "cd server && npm run build",
+    "build:admin": "cd admin && npm run build",
+    "build:client": "cd client && npm run build",
+    "seed:admin": "cd server && npm run seed"
+  }
+}
