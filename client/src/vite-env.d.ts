@@ -1,2 +1,1 @@
-/// <reference types="vite/client" />
-VITE_API_URL=https://strong-respect-production-a791.up.railway.app
+
