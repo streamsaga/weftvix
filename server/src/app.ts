@@ -19,6 +19,9 @@ import dashboardRoutes from './routes/dashboardRoutes';
 export function createApp(): Application {
   const app = express();
 
+  // disables ETag generation, which was causing 304s with empty bodies
+  app.set('etag', false);
+
   const rawOrigins = [
     process.env.CLIENT_URL,
     process.env.ADMIN_URL,
@@ -41,6 +44,12 @@ export function createApp(): Application {
   );
 
   app.use('/api', apiLimiter);
+
+  // extra safety net, tells browser/Vercel edge never to cache API responses
+  app.use('/api', (_req, res, next) => {
+    res.set('Cache-Control', 'no-store');
+    next();
+  });
 
   // Health check — used by Railway
   app.get('/api/health', (_req, res) => {
