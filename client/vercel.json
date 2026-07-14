@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/api/:path*", "destination": "https://weftvix-production.up.railway.app" }
+    { "source": "/api/:path*", "destination": "https://weftvix-production.up.railway.app/api/:path*" }
   ]
 }
