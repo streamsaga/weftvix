@@ -74,3 +74,10 @@ export function createApp(): Application {
 
   return app;
 }
+app.get('/api/test', (_req, res) => {
+  res.json({
+    success: true,
+    message: 'TEST ROUTE WORKING',
+    version: 'v1.0.0'
+  });
+});
